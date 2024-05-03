@@ -1,41 +1,35 @@
 CREATE TABLE user (
-  id TEXT PRIMARY KEY,
-  name TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL,
-  risk_level TEXT,
-  turnover_constraint TEXT,
-  algorithm_choice INTEGER,
-  stock_universe TEXT,
-  update_date TEXT
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_email TEXT UNIQUE NOT NULL,
+  risk_level TEXT
 );
 
-CREATE TABLE stock (
-  ticker TEXT PRIMARY KEY,
+CREATE TABLE performance_old (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   date DATETIME NOT NULL,
-  open FLOAT, 
-  high FLOAT,
-  low FLOAT,
-  close FLOAT, 
-  universe float,
-  balance float, 
-  shares_held INTEGER,
-  MACD float,
-  RSI float,
-  CCI float,
-  ADX float,
-  turbulence float 
+  account_value FLOAT, 
+  aa FLOAT,
+  ensemble FLOAT,
+  dji FLOAT, 
+  minvar float,
+  tangent float
 );
 
-CREATE TABLE portfolio (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	ticker TEXT, 
-	shares_held INTEGER,
-	dollar_amount FLOAT,
-	action_performed TEXT
+CREATE TABLE performance (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  date DATETIME NOT NULL,
+  account_value FLOAT, 
 );
 
-CREATE TABLE backtest (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	daily_return FLOAT,
-	turnover TEXT
+CREATE TABLE stocks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ticker TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE stockPercentages (
+    id INT PRIMARY KEY AUTOINCREMENT,
+    date DATE,
+    stockID INT,
+    percentage FLOAT,
+    FOREIGN KEY (StockID) REFERENCES Stocks(ID)
 );

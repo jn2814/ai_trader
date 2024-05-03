@@ -4,9 +4,9 @@ import './App.css';
 import Home from "./components/Home";
 import Viz from "./components/Viz";
 import VizSample from "./components/VizSample";
-
-
-
+import Welcome from "./components/Welcome";
+import Performance from "./components/Performance";
+import Algorithm from "./components/Algorithm";
 
 const App = () => {
   return (
@@ -16,7 +16,10 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Viz" element={<Viz />} />
+              <Route path="/Welcome" element={<Welcome />} />
               <Route path="/VizSample" element={<VizSample />} />
+              <Route path="/Performance" element={<Performance />} />
+              <Route path="/Algorithm" element={<Algorithm />} />
             </Routes>
         </div>
       </Router>
