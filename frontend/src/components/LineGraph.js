@@ -34,45 +34,12 @@ const ConnectedLineGraph = ({ data }) => {
       .x(d => x(d.date) + x.bandwidth() / 2)
       .y(d => y(d.averageaction));
 
-    const lineEnsemble = d3.line()
-      .x(d => x(d.date) + x.bandwidth() / 2)
-      .y(d => y(d.ensemble));
-
-    const lineDji = d3.line()
-      .x(d => x(d.date) + x.bandwidth() / 2)
-      .y(d => y(d.dji));
-
-    const lineMinvar = d3.line()
-      .x(d => x(d.date) + x.bandwidth() / 2)
-      .y(d => y(d.minvar));
-
     svg.append("path")
       .datum(data)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
       .attr("stroke-width", 1.5)
       .attr("d", lineAverageAction);
-
-    svg.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "green")
-      .attr("stroke-width", 1.5)
-      .attr("d", lineEnsemble);
-
-      svg.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "red")
-      .attr("stroke-width", 1.5)
-      .attr("d", lineDji);
-
-    svg.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "white")
-      .attr("stroke-width", 1.5)
-      .attr("d", lineMinvar);    
 
     // Add the X Axis
     svg.append("g")

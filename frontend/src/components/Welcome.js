@@ -93,28 +93,32 @@ const Welcome = (props) => {
     return (
        <div className="App">
             <header className="App-header">
-                <h1>Welcome {name}!! </h1>
+                <h1>Welcome {name}! </h1>
+                <sub>User email: {email}</sub>                    
                 <div>
-                    <h5>Email: {email}</h5>
-                    <h5>Current Basket: DOW30 </h5>
-                    <h5>Current Risk Level: {riskLevel} </h5>
-                </div>
-                <div>
+                    <h1> </h1>
                     <h2>Select your Basket</h2>
+                    <h5>Current Basket: DOW30 </h5>
                     <Button2 label="DOW30" onClick={handleClickNull} ></Button2>
                     <Button2 label="S&P500" onClick={handleClickNull} ></Button2>
                     <Button2 label="HSI" onClick={handleClickNull} ></Button2>
                     <Button2 label="DJIA" onClick={handleClickNull} ></Button2>
                     <Button2 label="SSE50" onClick={handleClickNull} ></Button2>
                     <Button2 label="CSE" onClick={handleClickNull} ></Button2>
+                    <h1> </h1>
                 </div>
-                <h2>Set your Risk Level Preference</h2>
+                <div>
+                    <h1> </h1>
+                    <h2>Set your Risk Level Preference</h2>
+                    <h4>Current Risk Level: {riskLevel} </h4>
+                </div>
                 <div>
                     <Button label="Low" onClick={handleSubmitLow} style={{ backgroundColor: 'deepskyblue' }}></Button>
                     <Button label="Medium" onClick={handleSubmitMed} style={{ backgroundColor: 'blue' }}></Button>
                     <Button label="High" onClick={handleSubmitHigh} style={{ backgroundColor: 'darkblue' }}></Button>
                 </div>
                 <div>
+                    <h1> </h1>
                     <h2>Account Options</h2>
                     <Button label="Performance Overview" onClick={handlePO} ></Button>
                     <Button label="Algorithm Preview" onClick={handleAP} ></Button>
