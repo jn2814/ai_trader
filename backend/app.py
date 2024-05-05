@@ -15,7 +15,7 @@ from performance import Performance
 
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True)  # Enable CORS for all routes
+CORS(app, supports_credentials=True)
 g_risk_level = ""
 
 try:

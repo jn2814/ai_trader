@@ -7,19 +7,16 @@ const ConnectedLineGraph = ({ data }) => {
   useEffect(() => {
     if (!data) return;
 
-    // Set up dimensions
     const margin = { top: 20, right: 30, bottom: 30, left: 50 };
     const width = 800 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
-    // Append SVG
     const svg = d3.select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // Set up scales
     const x = d3.scaleBand()
       .range([0, width])
       .domain(data.map(d => d.date))
@@ -29,7 +26,6 @@ const ConnectedLineGraph = ({ data }) => {
       .range([height, 0])
       .domain([0, d3.max(data, d => Math.max(d.averageaction, d.ensemble))]);
 
-    // Draw lines
     const lineAverageAction = d3.line()
       .x(d => x(d.date) + x.bandwidth() / 2)
       .y(d => y(d.averageaction));
@@ -41,12 +37,10 @@ const ConnectedLineGraph = ({ data }) => {
       .attr("stroke-width", 1.5)
       .attr("d", lineAverageAction);
 
-    // Add the X Axis
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
-    // Add the Y Axis
     svg.append("g")
       .call(d3.axisLeft(y));
   }, [data]);

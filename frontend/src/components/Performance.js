@@ -51,7 +51,6 @@ const Performance = () => {
       .attr('transform', `translate(0,${height})`)
       .call(d3.axisBottom(x));
 
-    // Append Y axis to SVG
     svg.append('g')
       .call(d3.axisLeft(y));
 
